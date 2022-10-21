@@ -1,0 +1,33 @@
+<body style="background-color: black;">
+<div class="container" style="border-radius: 10px; padding-left: 0px ; background-color: #404040;">
+
+  <div class="backbox">
+
+  </div>
+
+  <div class="frontbox">
+    <form action="/admin/adminHome" method="post">
+      <div class="login">
+        <h2>ADMIN LOG IN</h2>
+        <div class="inputbox">
+          <input type="text" name="email" placeholder="  EMAIL" required>
+          <input type="password" name="password" required placeholder="  PASSWORD" >
+        </div>
+        {{#if loginError}}
+        <p>Invalid email or password</p>
+        {{/if}}
+        <p>FORGET PASSWORD?</p>
+        <a href="/admin/userLogin" class="btn btn-secondary fw-bold text-white btn-sm">To user login</a>
+        <button type="submit">LOG IN</button>
+      </div>
+    </form>
+
+
+    
+
+  </div>
+
+</div>
+
+
+</body>

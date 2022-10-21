@@ -1,0 +1,62 @@
+<body style="background-color: black;">
+  
+
+<div class="container" style="border-radius: 10px; padding-left: 0px ; background-color: #404040;">
+  <div class="backbox">
+    <div class="loginMsg">
+      <div class="textcontent">
+        <p class="title">Don't have an account?</p>
+        <p>Sign up to save all your graph.</p>
+        <button id="switch1">Sign Up</button>
+      </div>
+    </div>
+    <div class="signupMsg visibility">
+      <div class="textcontent">
+        <p class="title">Have an account?</p>
+        <p>Log in to see all your collection.</p>
+        <button id="switch2">LOG IN</button>
+      </div>
+    </div>
+  </div>
+  <!-- backbox -->
+
+  <div class="frontbox">
+    <form action="/login" method="post">
+      <div class="login">
+        <h2>LOG IN</h2>
+        <div class="inputbox">
+          <input type="text" name="email" required placeholder="  EMAIL" />
+          <input type="password" name="password" required placeholder="  PASSWORD" />
+        </div>
+        <p>FORGET PASSWORD?</p>
+        <a href="/admin" class="btn btn-secondary fw-bold text-white btn-sm">Admin Login</a>
+
+        <button type="submit">LOG IN</button>
+      </div>
+
+      {{#if loginError}}
+      <p>Invalid email or password</p>
+      {{/if}}
+
+
+
+    </form>
+
+    <form method="post" action="/">
+      <div class="signup hide">
+        <h2>SIGN UP</h2>
+        <div class="inputbox">
+          <input type="text" name="fullname" required placeholder="  FULLNAME" />
+          <input type="text" name="email" required placeholder="  EMAIL" />
+          <input type="password" name="password" required placeholder="  PASSWORD" />
+        </div>
+        <button type="submit">SIGN UP</button>
+      </div>
+
+    </form>
+
+  </div>
+  <!-- frontbox -->
+</div>
+
+</body>

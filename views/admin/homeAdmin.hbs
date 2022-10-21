@@ -1,0 +1,66 @@
+<body style="background-color: black;">
+  <header>
+    <nav class="navbar navbar-expand-lg bg-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold fs-3 " href="">Admin Panel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="btn bg-black text-white fw-bold btn-sm m-4" aria-current="page" type="button" href="/">All Users</a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/add-user" type="button" class="btn bg-black text-white fw-bold btn-sm m-4">Add User</a>
+            </li>
+            {{!-- <li class="nav-item">
+              <a class="btn bg-black text-white fw-bold btn-sm m-4" href="">Delete User</a>
+            </li> --}}
+          </ul>
+          <a href="/admin/logout" class="btn btn-dark fw-bold text-white btn-sm" role="button">Log Out</a>
+        </div>
+      </div>
+       
+    </nav>
+   
+  </header>
+<br>
+<div class="container">
+<table id="table" class="display bg-secondary" style="width: 100%;" >
+  <thead>
+    <tr>
+      <th class="p-4" scope="col"><h5>#</h5></th>
+      <th class="p-4" scope="col"><h5>Name</h5></th>
+      <th class="p-4" scope="col"><h5>Email</h5></th>
+      <th class="p-4" scope="col"><h5>Options</h5></th>
+      {{!-- <th scope="col"><h5>Password</h5></th> --}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each usersData}}
+    <tr>
+      <th class="p-4" scope="row">{{@index}}</th>
+      <td class="p-4" scope="row"><b>{{this.fullname}}</b></td>
+      <td class="p-4" scope="row"><b>{{this.email}}</b></td>
+       <td>
+        <a class="btn btn-success btn-sm m-2" href="/admin/update-user/{{this._id}}">Edit</a>
+        <a class="btn btn-danger btn-sm m-2" onclick="return confirm ('Are you sure want to delete the user?')" href="/admin/delete-user?ID={{this._id}}">Delete user</a>
+        </td>
+      {{!-- <td scope="row"><b>{{this.password}}</b></td> --}}
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+
+<script>
+$(document).ready( function () {
+    $('#table').DataTable();
+} );
+</script>
+
+
+
+</body>
